@@ -1,0 +1,73 @@
+# For detailed discussion of line-endings and .gitattributes see
+# http://stackoverflow.com/questions/170961/whats-the-best-crlf-handling-strategy-with-git
+
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
+
+# Text files that should be normalized (convert crlf => lf)
+.gitignore    text
+.gitattr*     text
+*.asax        text
+*.ascx        text
+*.ashx        text
+*.aspx        text
+*.bmml        text
+*.cd          text
+*.cmd         text
+*.config      text
+*.cs          text diff=csharp
+*.cshtml      text
+*.csproj      text
+*.css         text
+*.datasource  text
+*.htc         text
+*.htm         text diff=html
+*.html        text diff=html
+*.js          text
+*.jsx         text
+*.json        text
+*.jsonc       text
+*.Master      text
+*.md          text diff=markdown
+*.mrt         text
+*.proj        text
+*.rdlc        text
+*.resx        text
+*.settings    text
+*.sln         text
+*.sql         text
+*.targets     text
+*.ts          text
+*.tsx         text
+*.tt          text
+*.txt         text
+*.vbs         text
+*.xml         text
+*.xsd         text
+*.xslt        text
+
+# Text files with forced crlf
+*.bat         text eol=crlf
+*.cmd         text eol=crlf
+
+# Text files with forced lf
+*.DotSettings text eol=lf
+*.ps1         text eol=lf
+*.sh          text eol=lf
+package.json  text eol=lf
+yarn.lock     text eol=lf
+
+# Binary files (left alone)
+*.bmp         binary
+*.dll         binary
+*.exe         binary
+*.gif         binary
+*.ico         binary
+*.jpg         binary
+*.mdf         binary
+*.png         binary
+*.psd         binary
+*.snk         binary
+*.vsd         binary
+*.xlsb        binary
+*.xlsx        binary

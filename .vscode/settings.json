@@ -1,0 +1,16 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.markdownlint": true
+  },
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // settings for extensions below
+
+  // spell checker settings
+  "cSpell.language": "en-US",
+  "cSpell.enableFiletypes": ["asciidoc", "csharp", "git-commit", "log", "markdown", "plaintext", "powershell", "text"],
+  "cSpell.flagWords": ["colour"],
+  
+  "cSpell.words": ["vercel"]
+}
