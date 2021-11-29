@@ -13,10 +13,10 @@ yarn install
 Afterwards, start the Remix development server like so:
 
 ```sh
-yarn run dev
+yarn dev
 ```
 
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
+Open up <http://localhost:3000> and you should be ready to go!
 
 ## Deployment
 
