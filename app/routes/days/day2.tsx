@@ -1,5 +1,5 @@
 import { LoaderFunction, useLoaderData } from "remix";
-import { Day } from "~/components/Day";
+import { Day, LineChart } from "~/components";
 import { DayData, getInputData } from "~/day";
 import { lines } from "~/util";
 
@@ -35,41 +35,104 @@ export default function Day2() {
         });
 
         const part1 = (commands: Command[]) => {
-            const finalPosition = commands.reduce(
-                (p, c) =>
-                    c.direction === "forward"
-                        ? { ...p, x: p.x + c.distance }
-                        : c.direction === "up"
-                        ? { ...p, y: p.y - c.distance }
-                        : { ...p, y: p.y + c.distance },
-                { x: 0, y: 0 }
+            const positions = commands.reduce(
+                (p, c) => {
+                    const previousPosition = p[p.length - 1];
+
+                    const newPosition =
+                        c.direction === "forward"
+                            ? {
+                                  ...previousPosition,
+                                  x: previousPosition.x + c.distance,
+                              }
+                            : c.direction === "up"
+                            ? {
+                                  ...previousPosition,
+                                  y: previousPosition.y - c.distance,
+                              }
+                            : {
+                                  ...previousPosition,
+                                  y: previousPosition.y + c.distance,
+                              };
+
+                    return [...p, newPosition];
+                },
+                [{ x: 0, y: 0 }]
             );
 
-            return finalPosition.x * finalPosition.y;
+            return positions;
         };
 
         const part2 = (commands: Command[]) => {
-            const finalPosition = commands.reduce(
-                (p, c) =>
-                    c.direction === "forward"
-                        ? {
-                              ...p,
-                              x: p.x + c.distance,
-                              y: p.y + c.distance * p.aim,
-                          }
-                        : c.direction === "up"
-                        ? { ...p, aim: p.aim - c.distance }
-                        : { ...p, aim: p.aim + c.distance },
-                { x: 0, y: 0, aim: 0 }
+            const positions = commands.reduce(
+                (p, c) => {
+                    const previousPosition = p[p.length - 1];
+
+                    const newPosition =
+                        c.direction === "forward"
+                            ? {
+                                  ...previousPosition,
+                                  x: previousPosition.x + c.distance,
+                                  y:
+                                      previousPosition.y +
+                                      c.distance * previousPosition.aim,
+                              }
+                            : c.direction === "up"
+                            ? {
+                                  ...previousPosition,
+                                  aim: previousPosition.aim - c.distance,
+                              }
+                            : {
+                                  ...previousPosition,
+                                  aim: previousPosition.aim + c.distance,
+                              };
+
+                    return [...p, newPosition];
+                },
+                [{ x: 0, y: 0, aim: 0 }]
             );
 
-            return finalPosition.x * finalPosition.y;
+            return positions;
+        };
+
+        const part1Positions = part1(commands);
+        const part1Sum =
+            part1Positions[part1Positions.length - 1].x *
+            part1Positions[part1Positions.length - 1].y;
+
+        const part2Positions = part2(commands);
+        const part2Sum =
+            part2Positions[part2Positions.length - 1].x *
+            part2Positions[part2Positions.length - 1].y;
+
+        const chartDimensions = {
+            width: 600,
+            height: 300,
+            margin: {
+                top: 30,
+                right: 30,
+                bottom: 30,
+                left: 60,
+            },
         };
 
         return (
             <>
-                <p>Part 1: {part1(commands)}</p>
-                <p>Part 2: {part2(commands)}</p>
+                <h2>Part 1</h2>
+                <p>Sum: {part1Sum}</p>
+                <LineChart
+                    items={part1Positions.filter((_, i) => i % 20 == 0)}
+                    dimensions={chartDimensions}
+                />
+
+                <hr />
+
+                <h2>Part 2</h2>
+                <p>Sum: {part2Sum}</p>
+                <LineChart
+                    items={part2Positions.filter((_, i) => i % 20 == 0)}
+                    dimensions={chartDimensions}
+                />
             </>
         );
     };

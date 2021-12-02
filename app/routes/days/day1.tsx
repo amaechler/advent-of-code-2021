@@ -1,5 +1,5 @@
 import { LoaderFunction, useLoaderData } from "remix";
-import { Day } from "~/components/Day";
+import { Day } from "~/components";
 import { DayData, getInputData } from "~/day";
 import { lines } from "~/util";
 
