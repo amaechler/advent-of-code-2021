@@ -5,18 +5,19 @@ interface IndexData {
     days: Array<number>;
 }
 
-export let loader: LoaderFunction = () => {
-    let data: IndexData = {
-        // days implemented
-        // [...Array(25).keys()]
-        days: [1],
+export const loader: LoaderFunction = () => {
+    const numberOfDaysImplemented = 2;
+
+    const data: IndexData = {
+        days: [...Array(numberOfDaysImplemented).keys()].map(
+            (d: number) => d + 1
+        ),
     };
 
-    // https://remix.run/api/remix#json
     return json(data);
 };
 
-export let meta: MetaFunction = () => {
+export const meta: MetaFunction = () => {
     return {
         title: "Advent of Code 2021",
         description: "Remix Party",
@@ -24,7 +25,7 @@ export let meta: MetaFunction = () => {
 };
 
 export default function Index() {
-    let data = useLoaderData<IndexData>();
+    const data = useLoaderData<IndexData>();
 
     return (
         <div className="remix__page">
