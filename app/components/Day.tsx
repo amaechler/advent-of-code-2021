@@ -1,6 +1,5 @@
 import React from "react";
-import { useLoaderData } from "remix";
-import { DayData } from "~/day";
+import { githubDayLocation } from "~/util";
 
 // Better children types, inspired by this https://fettblog.eu/react-types-for-children-are-broken/
 
@@ -19,11 +18,11 @@ export interface Children {
 
 export interface DayProps {
     content: React.ReactChild | null;
+    day: number;
     fileData: string | undefined;
-    name: string;
 }
 
-export const Day = ({ content, fileData, name }: DayProps) => {
+export const Day = ({ content, day, fileData }: DayProps) => {
     if (fileData === undefined) {
         return (
             <div>
@@ -34,8 +33,18 @@ export const Day = ({ content, fileData, name }: DayProps) => {
 
     return (
         <div>
-            <h1>{name}</h1>
+            <h1>Day {day}</h1>
             {content}
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "20px",
+                }}
+            >
+                (<a href={githubDayLocation(`day${day}.tsx`)}>Source</a>)
+            </div>
         </div>
     );
 };

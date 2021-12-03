@@ -1,9 +1,10 @@
 import day1 from "./inputs/day1_input.txt";
 import day2 from "./inputs/day2_input.txt";
+import day3 from "./inputs/day3_input.txt";
 
 export interface DayData {
+    day: number;
     fileData?: string;
-    name: string;
 }
 
 export const getInputData = async ({
@@ -11,8 +12,6 @@ export const getInputData = async ({
 }: {
     day: number;
 }): Promise<DayData> => {
-    const name = `Day ${day}`;
-
     let fileData = undefined;
     switch (day) {
         case 1:
@@ -21,7 +20,10 @@ export const getInputData = async ({
         case 2:
             fileData = day2;
             break;
+        case 3:
+            fileData = day3;
+            break;
     }
 
-    return { fileData, name };
+    return { day, fileData };
 };

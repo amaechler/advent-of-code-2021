@@ -3,12 +3,14 @@ import { Day } from "~/components";
 import { DayData, getInputData } from "~/day";
 import { lines } from "~/util";
 
+const day = 1;
+
 export const loader: LoaderFunction = async ({}) => {
-    return getInputData({ day: 1 });
+    return getInputData({ day });
 };
 
 export default function Day1() {
-    const { fileData, name } = useLoaderData<DayData>();
+    const { fileData } = useLoaderData<DayData>();
 
     const createContent = () => {
         if (!fileData) {
@@ -56,5 +58,5 @@ export default function Day1() {
         );
     };
 
-    return <Day content={createContent()} fileData={fileData} name={name} />;
+    return <Day content={createContent()} day={day} fileData={fileData} />;
 }

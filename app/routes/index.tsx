@@ -6,7 +6,7 @@ interface IndexData {
 }
 
 export const loader: LoaderFunction = () => {
-    const numberOfDaysImplemented = 2;
+    const numberOfDaysImplemented = 3;
 
     const data: IndexData = {
         days: [...Array(numberOfDaysImplemented).keys()].map(

@@ -3,8 +3,10 @@ import { Day, LineChart } from "~/components";
 import { DayData, getInputData } from "~/day";
 import { lines } from "~/util";
 
+const day = 2;
+
 export const loader: LoaderFunction = async ({}) => {
-    return getInputData({ day: 2 });
+    return getInputData({ day });
 };
 
 interface Command {
@@ -13,7 +15,7 @@ interface Command {
 }
 
 export default function Day2() {
-    const { fileData, name } = useLoaderData<DayData>();
+    const { fileData } = useLoaderData<DayData>();
 
     const createContent = () => {
         if (!fileData) {
@@ -137,5 +139,5 @@ export default function Day2() {
         );
     };
 
-    return <Day content={createContent()} fileData={fileData} name={name} />;
+    return <Day content={createContent()} day={day} fileData={fileData} />;
 }
