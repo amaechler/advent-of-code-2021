@@ -24,52 +24,38 @@ export const LineChart = ({ dimensions, items }: LineChartProps) => {
 
     React.useEffect(() => {
         const xScale = scaleLinear()
-            .domain(extent(items, (d) => d.x) as [number, number])
+            .domain(extent(items, d => d.x) as [number, number])
             .nice()
             .range([0, width]);
 
         const yScale = scaleLinear()
-            .domain(extent(items, (d) => d.y) as [number, number])
+            .domain(extent(items, d => d.y) as [number, number])
             .nice()
             .range([0, height]);
 
         // create root container where we will append all other chart elements
         const svgEl = select(svgRef.current);
         svgEl.selectAll("*").remove(); // clear svg content before adding new elements
-        const svg = svgEl
-            .append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+        const svg = svgEl.append("g").attr("transform", `translate(${margin.left}, ${margin.top})`);
 
         // add X grid lines with labels
         svg.append("g")
             .attr("transform", `translate(0, ${height})`)
             .call(axisBottom(xScale))
-            .call((g) => g.select(".domain").remove())
+            .call(g => g.select(".domain").remove())
 
-            .call((g) =>
-                g
-                    .selectAll(".tick line")
-                    .clone()
-                    .attr("y2", -height)
-                    .attr("stroke-opacity", 0.1)
-            );
+            .call(g => g.selectAll(".tick line").clone().attr("y2", -height).attr("stroke-opacity", 0.1));
 
         // add Y grid lines with labels
         svg.append("g")
             .call(axisLeft(yScale))
-            .call((g) => g.select(".domain").remove())
-            .call((g) =>
-                g
-                    .selectAll(".tick line")
-                    .clone()
-                    .attr("x2", width)
-                    .attr("stroke-opacity", 0.1)
-            );
+            .call(g => g.select(".domain").remove())
+            .call(g => g.selectAll(".tick line").clone().attr("x2", width).attr("stroke-opacity", 0.1));
 
         // draw the lines
         const d3Line = line()
-            .x((d) => xScale(d[0]))
-            .y((d) => yScale(d[1]));
+            .x(d => xScale(d[0]))
+            .y(d => yScale(d[1]));
 
         const lines = svg
             .selectAll(".line")
@@ -79,7 +65,7 @@ export const LineChart = ({ dimensions, items }: LineChartProps) => {
             .attr("fill", "none")
             .attr("stroke", "steelblue")
             .attr("stroke-width", 1.5)
-            .attr("d", d3Line(items.map((l) => [l.x, l.y])) as any);
+            .attr("d", d3Line(items.map(l => [l.x, l.y])) as any);
 
         // svg.append("path")
         //     .datum(items)

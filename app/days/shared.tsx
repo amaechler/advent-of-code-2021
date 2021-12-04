@@ -11,7 +11,7 @@ const inputsForDays: { [key: number]: string } = {
     1: day1,
     2: day2,
     3: day3,
-    4: day4,
+    4: day4
 };
 
 export const allDayComponents: {
@@ -20,7 +20,7 @@ export const allDayComponents: {
     1: Day1,
     2: Day2,
     3: Day3,
-    4: Day4,
+    4: Day4
 };
 
 export interface DayData {
@@ -28,11 +28,7 @@ export interface DayData {
     fileData?: string;
 }
 
-export const getDayData = async ({
-    day,
-}: {
-    day: number;
-}): Promise<DayData> => ({ day, fileData: inputsForDays[day] });
+export const getDayData = async ({ day }: { day: number }): Promise<DayData> => ({ day, fileData: inputsForDays[day] });
 
 export interface SpecificDayProps {
     day: number;

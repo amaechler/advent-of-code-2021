@@ -7,7 +7,7 @@ interface Command {
     distance: number;
 }
 
-export const Day2 = ({ day, fileData }: SpecificDayProps) => {
+export const Day2 = ({ fileData }: SpecificDayProps) => {
     if (!fileData) {
         return null;
     }
@@ -20,7 +20,7 @@ export const Day2 = ({ day, fileData }: SpecificDayProps) => {
 
         const command: Command = {
             direction: match[1] as any,
-            distance: Number(match[2]),
+            distance: Number(match[2])
         };
 
         return command;
@@ -35,16 +35,16 @@ export const Day2 = ({ day, fileData }: SpecificDayProps) => {
                     c.direction === "forward"
                         ? {
                               ...previousPosition,
-                              x: previousPosition.x + c.distance,
+                              x: previousPosition.x + c.distance
                           }
                         : c.direction === "up"
                         ? {
                               ...previousPosition,
-                              y: previousPosition.y - c.distance,
+                              y: previousPosition.y - c.distance
                           }
                         : {
                               ...previousPosition,
-                              y: previousPosition.y + c.distance,
+                              y: previousPosition.y + c.distance
                           };
 
                 return [...p, newPosition];
@@ -65,18 +65,16 @@ export const Day2 = ({ day, fileData }: SpecificDayProps) => {
                         ? {
                               ...previousPosition,
                               x: previousPosition.x + c.distance,
-                              y:
-                                  previousPosition.y +
-                                  c.distance * previousPosition.aim,
+                              y: previousPosition.y + c.distance * previousPosition.aim
                           }
                         : c.direction === "up"
                         ? {
                               ...previousPosition,
-                              aim: previousPosition.aim - c.distance,
+                              aim: previousPosition.aim - c.distance
                           }
                         : {
                               ...previousPosition,
-                              aim: previousPosition.aim + c.distance,
+                              aim: previousPosition.aim + c.distance
                           };
 
                 return [...p, newPosition];
@@ -88,14 +86,10 @@ export const Day2 = ({ day, fileData }: SpecificDayProps) => {
     };
 
     const part1Positions = part1(commands);
-    const part1Sum =
-        part1Positions[part1Positions.length - 1].x *
-        part1Positions[part1Positions.length - 1].y;
+    const part1Sum = part1Positions[part1Positions.length - 1].x * part1Positions[part1Positions.length - 1].y;
 
     const part2Positions = part2(commands);
-    const part2Sum =
-        part2Positions[part2Positions.length - 1].x *
-        part2Positions[part2Positions.length - 1].y;
+    const part2Sum = part2Positions[part2Positions.length - 1].x * part2Positions[part2Positions.length - 1].y;
 
     const chartDimensions = {
         width: 600,
@@ -104,27 +98,21 @@ export const Day2 = ({ day, fileData }: SpecificDayProps) => {
             top: 30,
             right: 30,
             bottom: 30,
-            left: 60,
-        },
+            left: 60
+        }
     };
 
     return (
         <>
             <h2>Part 1</h2>
             <p>Sum: {part1Sum}</p>
-            <LineChart
-                items={part1Positions.filter((_, i) => i % 20 == 0)}
-                dimensions={chartDimensions}
-            />
+            <LineChart items={part1Positions.filter((_, i) => i % 20 == 0)} dimensions={chartDimensions} />
 
             <hr />
 
             <h2>Part 2</h2>
             <p>Sum: {part2Sum}</p>
-            <LineChart
-                items={part2Positions.filter((_, i) => i % 20 == 0)}
-                dimensions={chartDimensions}
-            />
+            <LineChart items={part2Positions.filter((_, i) => i % 20 == 0)} dimensions={chartDimensions} />
         </>
     );
 };

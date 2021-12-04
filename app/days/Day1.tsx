@@ -1,7 +1,7 @@
 import { lines } from "~/util";
 import { SpecificDayProps } from "./shared";
 
-export const Day1 = ({ day, fileData }: SpecificDayProps) => {
+export const Day1 = ({ fileData }: SpecificDayProps) => {
     if (!fileData) {
         return null;
     }

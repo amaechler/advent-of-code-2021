@@ -11,6 +11,27 @@
   "cSpell.language": "en-US",
   "cSpell.enableFiletypes": ["asciidoc", "csharp", "git-commit", "log", "markdown", "plaintext", "powershell", "text"],
   "cSpell.flagWords": ["colour"],
-  
-  "cSpell.words": ["vercel"]
+
+  "cSpell.words": [
+    "amaechler",
+    "vercel"
+  ],
+
+  // eslint extension settings
+  "eslint.packageManager": "yarn",
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
+
+  // language associations
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

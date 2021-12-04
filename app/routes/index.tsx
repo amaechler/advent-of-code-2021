@@ -10,9 +10,7 @@ export const loader: LoaderFunction = () => {
     const numberOfDaysImplemented = Object.keys(allDayComponents).length;
 
     const data: IndexData = {
-        days: [...Array(numberOfDaysImplemented).keys()].map(
-            (d: number) => d + 1
-        ),
+        days: [...Array(numberOfDaysImplemented).keys()].map((d: number) => d + 1)
     };
 
     return json(data);
@@ -21,7 +19,7 @@ export const loader: LoaderFunction = () => {
 export const meta: MetaFunction = () => {
     return {
         title: "Advent of Code 2021",
-        description: "Remix Party",
+        description: "Remix Party"
     };
 };
 
@@ -33,7 +31,7 @@ export default function Index() {
             <main>
                 <h2>Days</h2>
                 <ul>
-                    {data.days.map((day) => (
+                    {data.days.map(day => (
                         <li key={day} className="remix__page__resource">
                             <Link to={`days/${day}`} prefetch="intent">
                                 Day {day}
