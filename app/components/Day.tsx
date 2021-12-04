@@ -12,29 +12,16 @@ type ReactNode =
     | null
     | undefined;
 
-export interface Children {
-    content?: ReactNode;
-}
-
 export interface DayProps {
-    content: React.ReactChild | null;
+    children: React.ReactChild | null;
     day: number;
-    fileData: string | undefined;
 }
 
-export const Day = ({ content, day, fileData }: DayProps) => {
-    if (fileData === undefined) {
-        return (
-            <div>
-                <p>Did you forget to load file data?</p>
-            </div>
-        );
-    }
-
+export const Day = ({ children, day }: DayProps) => {
     return (
         <div>
-            <h1>Day {day}</h1>
-            {content}
+            <h2>Day {day}</h2>
+            {children}
             <div
                 style={{
                     display: "flex",

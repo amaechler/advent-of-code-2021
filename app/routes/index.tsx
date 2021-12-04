@@ -1,12 +1,13 @@
 import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
+import { allDayComponents } from "~/days";
 
 interface IndexData {
     days: Array<number>;
 }
 
 export const loader: LoaderFunction = () => {
-    const numberOfDaysImplemented = 3;
+    const numberOfDaysImplemented = Object.keys(allDayComponents).length;
 
     const data: IndexData = {
         days: [...Array(numberOfDaysImplemented).keys()].map(
@@ -34,7 +35,7 @@ export default function Index() {
                 <ul>
                     {data.days.map((day) => (
                         <li key={day} className="remix__page__resource">
-                            <Link to={`days/day${day}`} prefetch="intent">
+                            <Link to={`days/${day}`} prefetch="intent">
                                 Day {day}
                             </Link>
                         </li>

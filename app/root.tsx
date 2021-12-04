@@ -143,7 +143,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                     >
                         <ul>
                             <li>
-                                <Link to="/">Home</Link>
+                                <Link to="/">Days</Link>
                             </li>
                             <li>
                                 <a href="https://remix.run/docs">Remix Docs</a>
