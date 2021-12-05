@@ -96,14 +96,7 @@ export const Day2 = ({ fileData }: SpecificDayProps) => {
             <h2>Part 1</h2>
             <p>Sum: {part1Sum}</p>
 
-            <div
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "20px"
-                }}
-            >
+            <div className="centered">
                 <LineChart items={part1Positions} />
             </div>
 
@@ -111,14 +104,7 @@ export const Day2 = ({ fileData }: SpecificDayProps) => {
 
             <h2>Part 2</h2>
             <p>Sum: {part2Sum}</p>
-            <div
-                style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "20px"
-                }}
-            >
+            <div className="centered">
                 <LineChart items={part2Positions} />
             </div>
         </>

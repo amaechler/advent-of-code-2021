@@ -25,9 +25,9 @@ const defaultChartDimensions: Dimensions = {
     height: 300,
     margin: {
         top: 30,
-        right: 30,
+        right: 100,
         bottom: 30,
-        left: 30
+        left: 100
     }
 };
 

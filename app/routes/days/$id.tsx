@@ -2,6 +2,12 @@ import { LoaderFunction, useLoaderData } from "remix";
 import { Day } from "~/components";
 import { allDayComponents, DayData, getDayData } from "~/days";
 
+import styles from "~/styles/day.css";
+
+export function links() {
+    return [{ rel: "stylesheet", href: styles }];
+}
+
 export const loader: LoaderFunction = async ({ params }) => {
     const parsedDay = Number(params.id);
     if (isNaN(parsedDay)) {
