@@ -22,6 +22,7 @@
     "d3-selection": "^2.0.0",
     "d3-shape": "^2.0.0",
     "d3-transition": "^2.0.0",
+    "downsample": "^1.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "remix": "^1.0.0"
@@ -37,11 +38,11 @@
     "@types/d3-transition": "^2.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.5.0",
-    "@typescript-eslint/parser": "^5.5.0",
-    "eslint": "^8.4.0",
-    "eslint-plugin-react": "^7.27.1",
-    "prettier": "^2.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "prettier": "^2.0.0",
     "typescript": "^4.0.0"
   },
   "engines": {

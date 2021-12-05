@@ -12,10 +12,7 @@
   "cSpell.enableFiletypes": ["asciidoc", "csharp", "git-commit", "log", "markdown", "plaintext", "powershell", "text"],
   "cSpell.flagWords": ["colour"],
 
-  "cSpell.words": [
-    "amaechler",
-    "vercel"
-  ],
+  "cSpell.words": ["amaechler", "downsample", "eslintcache", "longpaths", "lttb", "vercel"],
 
   // eslint extension settings
   "eslint.packageManager": "yarn",

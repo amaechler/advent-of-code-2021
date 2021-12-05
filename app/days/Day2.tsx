@@ -91,28 +91,36 @@ export const Day2 = ({ fileData }: SpecificDayProps) => {
     const part2Positions = part2(commands);
     const part2Sum = part2Positions[part2Positions.length - 1].x * part2Positions[part2Positions.length - 1].y;
 
-    const chartDimensions = {
-        width: 600,
-        height: 300,
-        margin: {
-            top: 30,
-            right: 30,
-            bottom: 30,
-            left: 60
-        }
-    };
-
     return (
         <>
             <h2>Part 1</h2>
             <p>Sum: {part1Sum}</p>
-            <LineChart items={part1Positions.filter((_, i) => i % 20 == 0)} dimensions={chartDimensions} />
+
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "20px"
+                }}
+            >
+                <LineChart items={part1Positions} />
+            </div>
 
             <hr />
 
             <h2>Part 2</h2>
             <p>Sum: {part2Sum}</p>
-            <LineChart items={part2Positions.filter((_, i) => i % 20 == 0)} dimensions={chartDimensions} />
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    margin: "20px"
+                }}
+            >
+                <LineChart items={part2Positions} />
+            </div>
         </>
     );
 };
