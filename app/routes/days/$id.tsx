@@ -20,26 +20,28 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function DayWithData() {
     const { day, fileData } = useLoaderData<DayData>();
 
-    if (!Object.prototype.hasOwnProperty.call(allDayComponents, day)) {
-        return (
-            <div>
-                <p>Day {day} does not exist.</p>
-            </div>
-        );
-    }
+    const notImplemented = !Object.prototype.hasOwnProperty.call(allDayComponents, day) ? (
+        <div>
+            <p>Day {day} has not been implemented.</p>
+        </div>
+    ) : null;
 
-    if (fileData === undefined) {
-        return (
+    const noFileData =
+        !notImplemented && fileData === undefined ? (
             <div>
                 <p>Did you forget to load file data?</p>
             </div>
-        );
-    }
+        ) : null;
 
     const SpecificDayComponent = allDayComponents[day];
+
     return (
         <Day day={day}>
-            <SpecificDayComponent day={day} fileData={fileData} />
+            <>
+                {notImplemented}
+                {noFileData}
+                {!notImplemented && !noFileData && <SpecificDayComponent day={day} fileData={fileData} />}
+            </>
         </Day>
     );
 }
