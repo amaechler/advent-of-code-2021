@@ -10,7 +10,7 @@ function calculateFuelUsage({
 }) {
     let lowestFuelUsage = { crabPosition: -1, usage: Number.MAX_VALUE };
 
-    for (const positionToAlignOn of range(0, Math.max(...crabPositions), 1)) {
+    for (const positionToAlignOn of range(0, Math.max(...crabPositions))) {
         let currentFuelUsage = 0;
         for (const currentCrabPosition of crabPositions) {
             const distance = Math.abs(currentCrabPosition - positionToAlignOn);

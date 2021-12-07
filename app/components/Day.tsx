@@ -2,7 +2,7 @@ import React from "react";
 import { githubDayLocation } from "~/util";
 
 import githubLogo from "~/images/github.svg";
-import { Link } from "react-router-dom";
+import { Link } from "remix";
 
 export interface DayProps {
     children: React.ReactChild | null;

@@ -8,6 +8,8 @@ import { Day4 } from "./Day4";
 import day4 from "./day4_input.txt";
 import { Day5 } from "./Day5";
 import day5 from "./day5_input.txt";
+import { Day6 } from "./Day6";
+import day6 from "./day6_input.txt";
 import { Day7 } from "./Day7";
 import day7 from "./day7_input.txt";
 
@@ -17,6 +19,7 @@ const inputsForDays: { [key: number]: string } = {
     3: day3,
     4: day4,
     5: day5,
+    6: day6,
     7: day7
 };
 
@@ -28,6 +31,7 @@ export const allDayComponents: {
     3: Day3,
     4: Day4,
     5: Day5,
+    6: Day6,
     7: Day7
 };
 
