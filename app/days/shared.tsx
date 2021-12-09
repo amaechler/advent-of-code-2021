@@ -14,29 +14,21 @@ import { Day7 } from "./Day7";
 import day7 from "./day7_input.txt";
 import { Day8 } from "./Day8";
 import day8 from "./day8_input.txt";
+import { Day9 } from "./Day9";
+import day9 from "./day9_input.txt";
 
-const inputsForDays: { [key: number]: string } = {
-    1: day1,
-    2: day2,
-    3: day3,
-    4: day4,
-    5: day5,
-    6: day6,
-    7: day7,
-    8: day8
-};
-
-export const allDayComponents: {
-    [key: number]: (props: SpecificDayProps) => JSX.Element | null;
+export const allDays: {
+    [key: number]: { component: (props: SpecificDayProps) => JSX.Element | null; input: string };
 } = {
-    1: Day1,
-    2: Day2,
-    3: Day3,
-    4: Day4,
-    5: Day5,
-    6: Day6,
-    7: Day7,
-    8: Day8
+    1: { component: Day1, input: day1 },
+    2: { component: Day2, input: day2 },
+    3: { component: Day3, input: day3 },
+    4: { component: Day4, input: day4 },
+    5: { component: Day5, input: day5 },
+    6: { component: Day6, input: day6 },
+    7: { component: Day7, input: day7 },
+    8: { component: Day8, input: day8 },
+    9: { component: Day9, input: day9 }
 };
 
 export interface DayData {
@@ -44,7 +36,7 @@ export interface DayData {
     fileData?: string;
 }
 
-export const getDayData = async ({ day }: { day: number }): Promise<DayData> => ({ day, fileData: inputsForDays[day] });
+export const getDayData = async ({ day }: { day: number }): Promise<DayData> => ({ day, fileData: allDays[day].input });
 
 export interface SpecificDayProps {
     day: number;

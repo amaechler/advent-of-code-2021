@@ -8,7 +8,7 @@
   // settings for extensions below
 
   // spell checker settings
-  "cSpell.language": "en-US",
+  "cSpell.language": "en-GB",
   "cSpell.enableFiletypes": ["asciidoc", "csharp", "git-commit", "log", "markdown", "plaintext", "powershell", "text"],
   "cSpell.flagWords": ["colour"],
 

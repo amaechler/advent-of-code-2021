@@ -1,6 +1,6 @@
 import { LoaderFunction, useLoaderData } from "remix";
 import { Day } from "~/components";
-import { allDayComponents, DayData, getDayData } from "~/days";
+import { allDays, DayData, getDayData } from "~/days";
 
 import styles from "~/styles/day.css";
 
@@ -20,7 +20,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 export default function DayWithData() {
     const { day, fileData } = useLoaderData<DayData>();
 
-    const notImplemented = !Object.prototype.hasOwnProperty.call(allDayComponents, day) ? (
+    const notImplemented = !Object.prototype.hasOwnProperty.call(allDays, day) ? (
         <div>
             <p>Day {day} has not been implemented.</p>
         </div>
@@ -33,7 +33,7 @@ export default function DayWithData() {
             </div>
         ) : null;
 
-    const SpecificDayComponent = allDayComponents[day];
+    const SpecificDayComponent = allDays[day].component;
 
     return (
         <Day day={day}>
