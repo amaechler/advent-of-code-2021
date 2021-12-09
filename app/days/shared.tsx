@@ -12,6 +12,8 @@ import { Day6 } from "./Day6";
 import day6 from "./day6_input.txt";
 import { Day7 } from "./Day7";
 import day7 from "./day7_input.txt";
+import { Day8 } from "./Day8";
+import day8 from "./day8_input.txt";
 
 const inputsForDays: { [key: number]: string } = {
     1: day1,
@@ -20,7 +22,8 @@ const inputsForDays: { [key: number]: string } = {
     4: day4,
     5: day5,
     6: day6,
-    7: day7
+    7: day7,
+    8: day8
 };
 
 export const allDayComponents: {
@@ -32,7 +35,8 @@ export const allDayComponents: {
     4: Day4,
     5: Day5,
     6: Day6,
-    7: Day7
+    7: Day7,
+    8: Day8
 };
 
 export interface DayData {
