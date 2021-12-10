@@ -16,6 +16,8 @@ import { Day8 } from "./Day8";
 import day8 from "./day8_input.txt";
 import { Day9 } from "./Day9";
 import day9 from "./day9_input.txt";
+import { Day10 } from "./Day10";
+import day10 from "./day10_input.txt";
 
 export const allDays: {
     [key: number]: { component: (props: SpecificDayProps) => JSX.Element | null; input: string };
@@ -28,7 +30,8 @@ export const allDays: {
     6: { component: Day6, input: day6 },
     7: { component: Day7, input: day7 },
     8: { component: Day8, input: day8 },
-    9: { component: Day9, input: day9 }
+    9: { component: Day9, input: day9 },
+    10: { component: Day10, input: day10 }
 };
 
 export interface DayData {
