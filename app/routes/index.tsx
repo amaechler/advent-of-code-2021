@@ -1,6 +1,6 @@
 import type { MetaFunction, LoaderFunction } from "remix";
 import { useLoaderData, json, Link } from "remix";
-import { allDays } from "~/days";
+import { implementedDays } from "~/days";
 
 interface IndexData {
     days: Array<number>;
@@ -8,7 +8,7 @@ interface IndexData {
 
 export const loader: LoaderFunction = () => {
     const data: IndexData = {
-        days: Object.keys(allDays).map(d => Number(d))
+        days: implementedDays
     };
 
     return json(data);

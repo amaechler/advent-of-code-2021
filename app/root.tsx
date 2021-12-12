@@ -105,7 +105,9 @@ function Layout({ children }: { children: React.ReactNode }) {
                     <nav aria-label="Main navigation" className="remix-app__header-nav">
                         <ul>
                             <li>
-                                <Link to="/">Days</Link>
+                                <Link to="/" prefetch="intent">
+                                    Days
+                                </Link>
                             </li>
                             <li>
                                 <a href="https://remix.run/docs">Remix Docs</a>

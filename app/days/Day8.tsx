@@ -136,11 +136,14 @@ const part2 = (entries: Entry[]) => {
         // which segment and use that to create the number
 
         // return the numeric value of the outputValue
-        return acc + Number(
-            curr.outputValue.reduce((a, c) => {
-                const x = a + map[[...permut(c)].find(x => map[x] !== undefined) as any];
-                return x;
-            }, "")
+        return (
+            acc +
+            Number(
+                curr.outputValue.reduce((a, c) => {
+                    const x = a + map[[...permut(c)].find(x => map[x] !== undefined) as any];
+                    return x;
+                }, "")
+            )
         );
         // return 0;
     }, 0);

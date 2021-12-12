@@ -28,10 +28,10 @@ const colors = quantize(interpolateHcl("#fafa6e", "#2A4858"), 10);
 
 /**
  * Visualizes day 9 input as surface plot.
- * 
+ *
  * This 3d surface plot uses d3 / SVG only, and does not memoize
  * any calculations. The SVG implementation for a larger matrix is
- * simply too slow for interactions. It would be nice to try a 
+ * simply too slow for interactions. It would be nice to try a
  * rendering with WebGL next.
  */
 export const Day9Visualization = ({ matrix }: { matrix: number[][] }): JSX.Element => {

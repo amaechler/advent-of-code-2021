@@ -1,8 +1,4 @@
-
-export function sortBy<TObject, TKey extends keyof TObject>(
-    object: TObject[],
-    key: TKey
-): TObject[] {
+export function sortBy<TObject, TKey extends keyof TObject>(object: TObject[], key: TKey): TObject[] {
     if (!object) {
         return object;
     }
