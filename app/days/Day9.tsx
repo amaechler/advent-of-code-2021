@@ -1,4 +1,5 @@
 import { lines, sortBy } from "~/util";
+import { Day9Visualization } from "./Day9Visualization";
 import { SpecificDayProps } from "./shared";
 
 interface LowPoint {
@@ -80,17 +81,23 @@ export const Day9 = ({ fileData }: SpecificDayProps) => {
     }
 
     const heightMatrix = lines(fileData).map(l => l.split("").map(n => Number(n)));
+    const mutatedMatrix: number[][] = JSON.parse(JSON.stringify(heightMatrix)); // cheap deep copy 😊
 
     return (
         <>
             <h2>Part 1</h2>
             <p>
-                Map Size: {heightMatrix.length}x{heightMatrix[0].length}, Number of low points: {part1(heightMatrix)}
+                Map Size: {mutatedMatrix.length}x{mutatedMatrix[0].length}, Number of low points: {part1(mutatedMatrix)}
             </p>
+
             <hr />
 
             <h2>Part 2</h2>
-            <p>{part2(heightMatrix)}</p>
+            <p>{part2(mutatedMatrix)}</p>
+
+            <hr />
+
+            <Day9Visualization matrix={heightMatrix} />
         </>
     );
 };
