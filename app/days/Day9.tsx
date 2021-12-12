@@ -1,4 +1,4 @@
-import { lines, sortBy } from "~/util";
+import { jsonDeepCopy, lines, sortBy } from "~/util";
 import { Day9Visualization } from "./Day9Visualization";
 import { SpecificDayProps } from "./shared";
 
@@ -81,7 +81,7 @@ export const Day9 = ({ fileData }: SpecificDayProps) => {
     }
 
     const heightMatrix = lines(fileData).map(l => l.split("").map(n => Number(n)));
-    const mutatedMatrix: number[][] = JSON.parse(JSON.stringify(heightMatrix)); // cheap deep copy 😊
+    const mutatedMatrix: number[][] = jsonDeepCopy(heightMatrix);
 
     return (
         <>

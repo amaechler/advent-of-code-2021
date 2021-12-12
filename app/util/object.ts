@@ -1,3 +1,7 @@
+export function jsonDeepCopy<T>(o: T): T {
+    return JSON.parse(JSON.stringify(o));
+}
+
 export function sortBy<TObject, TKey extends keyof TObject>(object: TObject[], key: TKey): TObject[] {
     if (!object) {
         return object;
