@@ -8,10 +8,6 @@ class Node<T> {
         this.children.push(node);
     }
 
-    isChild(node: Node<T>) {
-        return this.children.indexOf(node) > -1;
-    }
-
     readonly children: Node<T>[] = [];
 }
 
@@ -90,7 +86,7 @@ function dfsTraversal<T>({
 
         // figure out which nodes we want to visit next
         const nodesToVisit = child.children.filter(c => {
-            // do not visit start and end again
+            // do not visit start again
             if (c === start) {
                 return false;
             }
