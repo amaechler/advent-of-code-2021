@@ -103,7 +103,7 @@ const part2 = (template: string, rules: Rules) => {
     }
 
     // count the first character of the template and then every second character of every pair
-    const moleculeCountMap: { [character: string]: number } = { };
+    const moleculeCountMap: { [character: string]: number } = {};
     moleculeCountMap[template[0]] = 1;
     Object.entries(pairMap).forEach(([pair, count]) => {
         moleculeCountMap[pair[1]] = moleculeCountMap[pair[1]] ? moleculeCountMap[pair[1]] + count : count;

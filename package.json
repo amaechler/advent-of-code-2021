@@ -25,6 +25,7 @@
     "d3-shape": "^2.0.0",
     "d3-transition": "^2.0.0",
     "downsample": "^1.0.0",
+    "javascript-astar": "^0.4.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "remix": "^1.0.0"
