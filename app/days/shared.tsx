@@ -49,7 +49,7 @@ import day24 from "./day24_input.txt";
 import { Day25 } from "./Day25";
 import day25 from "./day25_input.txt";
 
-export const implementedDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+export const implementedDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 export const allDays: {
     [key: number]: { component: (props: SpecificDayProps) => JSX.Element | null; input: string };
